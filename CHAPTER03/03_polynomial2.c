@@ -21,7 +21,7 @@ char compare(int a, int b)
 void attach(float coef, int expon)
 {
 	if (avail>MAX_TERMS) {
-		fprintf(stderr, "���� ������ �ʹ� ����\n");
+		fprintf(stderr, "항의 개수가 너무 많음\n");
 		exit(1);
 	}
 	terms[avail].coef = coef;

@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include<time.h>
 #include<string.h>
-#define MAX 5 // 10의 승수 만큼 감소/증가 시켜 실험해볼 것
+#define MAX 100 // 10의 승수 만큼 감소/증가 시켜 실험해볼 것
 
 int black_cnt, red_cnt, blue_cnt, error_cnt, error_percent, total_cnt;
-#define MAX_QUEUE_SIZE 6
+#define MAX_QUEUE_SIZE 101
 
 typedef struct pen//생산된 펜들의 필드
 {

@@ -1,4 +1,4 @@
-#define _PRA
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX_DEGREE 101
@@ -169,9 +169,9 @@ element peek(StackType *s)
 int main(void)
 {
     polynomial a={5,{10,0,0,0,6,3}};
-    polynomial b={4,{0,1,0,5,0,7}};
+    polynomial b={4,{1,0,5,0,7}};
     polynomial c={5,{9,0,0,0,6,2}};
-    polynomial d={4,{0,1,0,5,0,7}};
+    polynomial d={4,{1,0,5,0,7}};
     QueueType q;
     init_queue(&q);
 

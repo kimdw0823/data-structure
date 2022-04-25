@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNONGS
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
@@ -36,5 +37,6 @@ int main(void)
     }
     fclose(fp);
     system("notepad.exe 02.txt");
+    return 0;
 
 }

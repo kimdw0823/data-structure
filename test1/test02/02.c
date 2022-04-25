@@ -34,5 +34,6 @@ int main(void)
         fprintf(fp,"%s %d %lf\n",s[i].name,s[i].student_num,s[i].grade);
     }
     fclose(fp);
+    system("notepad.exe 02.txt");
 
 }

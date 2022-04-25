@@ -12,7 +12,7 @@ typedef struct student
 int main(void)
 {   
     FILE *fp;
-    fp=fopen("02.txt","w");
+    fp=fopen("01.txt","wb");
     student s[10]=
     {
         {"김도우",1},{"성태훈",2},{"김학선",3},{"장원진",4},{"방석진",5}
@@ -28,13 +28,10 @@ int main(void)
         k = (float)(rand()%50) / 10;
         s[i].grade=k;
     }
+    fwrite(&s, sizeof(s), 1, fp); 
 
-    for(i=0;i<10;i++)
-
-    {
-        fprintf(fp,"%s %d %.1lf\n",s[i].name,s[i].student_num,s[i].grade);
-    }
+    
     fclose(fp);
-    system("notepad.exe 02.txt");
-
+    return 0;
+    
 }

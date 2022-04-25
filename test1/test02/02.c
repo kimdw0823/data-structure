@@ -31,7 +31,7 @@ int main(void)
     for(i=0;i<10;i++)
 
     {
-        fprintf(fp,"%s %d %lf",s[i].name,s[i].student_num,s[i].grade);
+        fprintf(fp,"%s %d %lf\n",s[i].name,s[i].student_num,s[i].grade);
     }
     fclose(fp);
 

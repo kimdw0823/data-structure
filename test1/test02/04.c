@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNING
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
@@ -36,8 +36,9 @@ int main(void)
         }
         //printf("수행시간: %lf",duration);//수행시간 출력
     }
+   
     return 0;
-    system("notepad 02.txt");
+    
 }
 void hanoi_tower(int n, char from, char tmp, char to)
 {	

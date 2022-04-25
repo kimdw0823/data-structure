@@ -183,15 +183,17 @@ int main(void)
     fp=fopen("05-1.txt","w");
     polynomial temp;
     int i;
-    fprintf(fp,"다항식 1\n");
+    fprintf(fp,"[다항식 1]\n");
     for(i=0;i<4;i++)
     {   
         if(i==2)
-            fprintf(fp,"다항식 2\n");
+            fprintf(fp,"[다항식 2]\n");
         temp=dequeue(&q);
         fprintf_poly(temp,fp);
     }
     fclose(fp);
+	system("notepad.exe 05-1.txt");
+
     polynomial sum_ab,sum_cd;
     sum_ab=poly_add1(a,b);
     sum_cd=poly_add1(c,d);
@@ -202,16 +204,18 @@ int main(void)
     push(&s,sum_cd);
     FILE *fp2;
     fp2=fopen("05-2.txt","w");
-    fprintf(fp2,"다항식 1의 결과\n");
+    fprintf(fp2,"[다항식 1의 결과]\n");
     for(i=0;i<2;i++)
     {   
         if(i==1)
-            fprintf(fp2,"다항식 2의 결과\n");
+            fprintf(fp2,"[다항식 2의 결과]\n");
         temp=pop(&s);
         fprintf_poly(temp,fp2);
     }
+	fclose(fp2);
+	system("notepad.exe 05-2.txt");
 
-
+	
 
     
 

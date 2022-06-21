@@ -4,31 +4,31 @@
 #define MAX_SIZE 10
 
 int list[MAX_SIZE];
-int sorted[MAX_SIZE];   // Ãß°¡ °ø°£ÀÌ ÇÊ¿ä
+int sorted[MAX_SIZE];   // ì¶”ê°€ ê³µê°„ì´ í•„ìš”
 int n;
 
-/* i´Â Á¤·ÄµÈ ¿ŞÂÊ ¸®½ºÆ®¿¡ ´ëÇÑ ÀÎµ¦½º
-		j´Â Á¤·ÄµÈ ¿À¸¥ÂÊ ¸®½ºÆ®¿¡ ´ëÇÑ ÀÎµ¦½º
-		k´Â Á¤·ÄµÉ ¸®½ºÆ®¿¡ ´ëÇÑ ÀÎµ¦½º */
+/* iëŠ” ì •ë ¬ëœ ì™¼ìª½ ë¦¬ìŠ¤íŠ¸ì— ëŒ€í•œ ì¸ë±ìŠ¤
+		jëŠ” ì •ë ¬ëœ ì˜¤ë¥¸ìª½ ë¦¬ìŠ¤íŠ¸ì— ëŒ€í•œ ì¸ë±ìŠ¤
+		këŠ” ì •ë ¬ë  ë¦¬ìŠ¤íŠ¸ì— ëŒ€í•œ ì¸ë±ìŠ¤ */
 void merge(int list[], int left, int mid, int right)
 {
 	int i, j, k, l;
 	i = left;  j = mid + 1;  k = left;
 
-	/* ºĞÇÒ Á¤·ÄµÈ listÀÇ ÇÕº´ */
+	/* ë¶„í•  ì •ë ¬ëœ listì˜ í•©ë³‘ */
 	while (i <= mid && j <= right) {
 		if (list[i] <= list[j])
 			sorted[k++] = list[i++];
 		else
 			sorted[k++] = list[j++];
 	}
-	if (i>mid)	/* ³²¾Æ ÀÖ´Â ·¹ÄÚµåÀÇ ÀÏ°ı º¹»ç */
+	if (i>mid)	/* ë‚¨ì•„ ìˆëŠ” ë ˆì½”ë“œì˜ ì¼ê´„ ë³µì‚¬ */
 		for (l = j; l <= right; l++)
 			sorted[k++] = list[l];
-	else	/* ³²¾Æ ÀÖ´Â ·¹ÄÚµåÀÇ ÀÏ°ı º¹»ç */
+	else	/* ë‚¨ì•„ ìˆëŠ” ë ˆì½”ë“œì˜ ì¼ê´„ ë³µì‚¬ */
 		for (l = i; l <= mid; l++)
 			sorted[k++] = list[l];
-	/* ¹è¿­ sorted[]ÀÇ ¸®½ºÆ®¸¦ ¹è¿­ list[]·Î Àçº¹»ç */
+	/* ë°°ì—´ sorted[]ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°°ì—´ list[]ë¡œ ì¬ë³µì‚¬ */
 	for (l = left; l <= right; l++)
 		list[l] = sorted[l];
 }
@@ -37,10 +37,10 @@ void merge_sort(int list[], int left, int right)
 {
 	int mid;
 	if (left<right) {
-		mid = (left + right) / 2;     /* ¸®½ºÆ®ÀÇ ±Õµî ºĞÇÒ */
-		merge_sort(list, left, mid);    /* ºÎºĞ ¸®½ºÆ® Á¤·Ä */
-		merge_sort(list, mid + 1, right); /* ºÎºĞ ¸®½ºÆ® Á¤·Ä */
-		merge(list, left, mid, right);    /* ÇÕº´ */
+		mid = (left + right) / 2;     /* ë¦¬ìŠ¤íŠ¸ì˜ ê· ë“± ë¶„í•  */
+		merge_sort(list, left, mid);    /* ë¶€ë¶„ ë¦¬ìŠ¤íŠ¸ ì •ë ¬ */
+		merge_sort(list, mid + 1, right); /* ë¶€ë¶„ ë¦¬ìŠ¤íŠ¸ ì •ë ¬ */
+		merge(list, left, mid, right);    /* í•©ë³‘ */
 	}
 }
 int main(void)

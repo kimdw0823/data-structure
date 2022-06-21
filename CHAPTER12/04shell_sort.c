@@ -6,8 +6,8 @@
 
 int list[MAX];
 int n;
-// gap ¸¸Å­ ¶³¾îÁø ¿ä¼ÒµéÀ» »ğÀÔ Á¤·Ä
-// Á¤·ÄÀÇ ¹üÀ§´Â first¿¡¼­ last
+// gap ë§Œí¼ ë–¨ì–´ì§„ ìš”ì†Œë“¤ì„ ì‚½ì… ì •ë ¬
+// ì •ë ¬ì˜ ë²”ìœ„ëŠ” firstì—ì„œ last
 void inc_insertion_sort(int list[], int first, int last, int gap)
 {
 	int i, j, key;
@@ -19,12 +19,12 @@ void inc_insertion_sort(int list[], int first, int last, int gap)
 	}
 }
 //
-void shell_sort(int list[], int n)   // n = size//(¸®½ºÆ®,¸®½ºÆ® Å©±â)
+void shell_sort(int list[], int n)   // n = size//(ë¦¬ìŠ¤íŠ¸,ë¦¬ìŠ¤íŠ¸ í¬ê¸°)
 {
 	int i, gap;
 	for (gap = n / 2; gap>0; gap = gap / 2) {
 		if ((gap % 2) == 0) gap++;
-		for (i = 0; i<gap; i++)		// ºÎºĞ ¸®½ºÆ®ÀÇ °³¼ö´Â gap
+		for (i = 0; i<gap; i++)		// ë¶€ë¶„ ë¦¬ìŠ¤íŠ¸ì˜ ê°œìˆ˜ëŠ” gap
 			inc_insertion_sort(list, i, n - 1, gap);
 	}
 }

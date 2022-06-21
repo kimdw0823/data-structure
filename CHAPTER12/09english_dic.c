@@ -10,21 +10,21 @@ typedef struct {
 	char word[MAX_WORD_SIZE];
 	char meaning[MAX_MEANING_SIZE];
 } element;
-element list[SIZE];   	/* ±¸Á¶Ã¼ ¹è¿­ ¼±¾ğ */
+element list[SIZE];   	/* êµ¬ì¡°ì²´ ë°°ì—´ ì„ ì–¸ */
 
 int main(void)
 {
 	int i, j;
 	element temp;
 
-	printf("5°³ÀÇ ´Ü¾î¿Í ÀÇ¹Ì¸¦ ÀÔ·ÂÇÏ½Ã¿À\n");
+	printf("5ê°œì˜ ë‹¨ì–´ì™€ ì˜ë¯¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤\n");
 
 	for (i = 0; i < SIZE; i++) {
-		scanf("%s[^\n]", list[i].word);	// ¿£ÅÍÅ°¸¸À» Á¦¿ÜÇÏ°í ¹Ş´Â´Ù.
-		scanf("%s[^\n]", list[i].meaning);// ¿£ÅÍÅ°¸¸À» Á¦¿ÜÇÏ°í ¹Ş´Â´Ù.
+		scanf("%s[^\n]", list[i].word);	// ì—”í„°í‚¤ë§Œì„ ì œì™¸í•˜ê³  ë°›ëŠ”ë‹¤.
+		scanf("%s[^\n]", list[i].meaning);// ì—”í„°í‚¤ë§Œì„ ì œì™¸í•˜ê³  ë°›ëŠ”ë‹¤.
 	}
 
- // ¹öºí Á¤·Ä
+ // ë²„ë¸” ì •ë ¬
 	for (i = 0; i < SIZE - 1; ++i) {
 		for (j = i + 1; j < SIZE; ++j) {
 			if (strcmp(list[i].word, list[j].word) > 0) {
@@ -33,7 +33,7 @@ int main(void)
 		}
 	}
 
-	printf("\nÁ¤·Ä ÈÄ »çÀüÀÇ ³»¿ë: \n");
+	printf("\nì •ë ¬ í›„ ì‚¬ì „ì˜ ë‚´ìš©: \n");
 	for (i = 0; i<SIZE; i++)	{
 		printf("%s: %s \n", list[i].word, list[i].meaning);
 	}

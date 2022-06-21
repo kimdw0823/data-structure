@@ -3,50 +3,50 @@
 #include<time.h>
 #define MAX_QUEUE_SIZE 100
 typedef int element;
-typedef struct { // Å¥ Å¸ÀÔ
+typedef struct { // í íƒ€ìž…
 	element  data[MAX_QUEUE_SIZE];
 	int  front, rear;
 } QueueType;
 
-// ¿À·ù ÇÔ¼ö
+// ì˜¤ë¥˜ í•¨ìˆ˜
 void error(char *message)
 {
 	fprintf(stderr, "%s\n", message);
 	exit(1);
 }
 
-// °ø¹é »óÅÂ °ËÃâ ÇÔ¼ö
+// ê³µë°± ìƒíƒœ ê²€ì¶œ í•¨ìˆ˜
 void init_queue(QueueType *q)
 {
 	q->front = q->rear = 0;
 }
 
-// °ø¹é »óÅÂ °ËÃâ ÇÔ¼ö
+// ê³µë°± ìƒíƒœ ê²€ì¶œ í•¨ìˆ˜
 int is_empty(QueueType *q)
 {
 	return (q->front == q->rear);
 }
 
-// Æ÷È­ »óÅÂ °ËÃâ ÇÔ¼ö
+// í¬í™” ìƒíƒœ ê²€ì¶œ í•¨ìˆ˜
 int is_full(QueueType *q)
 {
 	return ((q->rear + 1) % MAX_QUEUE_SIZE == q->front);
 }
 
-// »ðÀÔ ÇÔ¼ö
+// ì‚½ìž… í•¨ìˆ˜
 void enqueue(QueueType *q, element item)
 {
 	if (is_full(q))
-		error("Å¥°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		error("íê°€ ê³µë°± ìƒíƒœìž…ë‹ˆë‹¤.");
 	q->rear = (q->rear + 1) % MAX_QUEUE_SIZE;
 	q->data[q->rear] = item;
 }
 
-// »èÁ¦ ÇÔ¼ö
+// ì‚­ì œ í•¨ìˆ˜
 element dequeue(QueueType *q)
 {
 	if (is_empty(q))
-		error("Å¥°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		error("íê°€ ê³µë°± ìƒíƒœìž…ë‹ˆë‹¤.");
 	q->front = (q->front + 1) % MAX_QUEUE_SIZE;
 	return q->data[q->front];
 }
@@ -58,16 +58,16 @@ void radix_sort(int list[], int n)
 	int i, b, d, factor = 1;
 	QueueType queues[BUCKETS];
 
-	for (b = 0; b<BUCKETS; b++) init_queue(&queues[b]);  // Å¥µéÀÇ ÃÊ±âÈ­
+	for (b = 0; b<BUCKETS; b++) init_queue(&queues[b]);  // íë“¤ì˜ ì´ˆê¸°í™”
 
 	for (d = 0; d<DIGITS; d++) {
-		for (i = 0; i<n; i++)			// µ¥ÀÌÅÍµéÀ» ÀÚ¸®¼ö¿¡ µû¶ó Å¥¿¡ »ðÀÔ
+		for (i = 0; i<n; i++)			// ë°ì´í„°ë“¤ì„ ìžë¦¬ìˆ˜ì— ë”°ë¼ íì— ì‚½ìž…
 			enqueue(&queues[(list[i] / factor) % 10], list[i]);
 
-		for (b = i = 0; b<BUCKETS; b++)  // ¹öÅ¶¿¡¼­ ²¨³»¾î list·Î ÇÕÄ£´Ù.
+		for (b = i = 0; b<BUCKETS; b++)  // ë²„í‚·ì—ì„œ êº¼ë‚´ì–´ listë¡œ í•©ì¹œë‹¤.
 			while (!is_empty(&queues[b]))
 				list[i++] = dequeue(&queues[b]);
-		factor *= 10;					// ±× ´ÙÀ½ ÀÚ¸®¼ö·Î °£´Ù.
+		factor *= 10;					// ê·¸ ë‹¤ìŒ ìžë¦¬ìˆ˜ë¡œ ê°„ë‹¤.
 	}
 }
 
@@ -77,10 +77,10 @@ int main(void)
 {
 	int list[SIZE];
 	srand(time(NULL));
-	for (int i = 0; i<SIZE; i++)      	// ³­¼ö »ý¼º ¹× Ãâ·Â 
+	for (int i = 0; i<SIZE; i++)      	// ë‚œìˆ˜ ìƒì„± ë° ì¶œë ¥ 
 		list[i] = rand() % 100;
 
-	radix_sort(list, SIZE); // ±â¼öÁ¤·Ä È£Ãâ 
+	radix_sort(list, SIZE); // ê¸°ìˆ˜ì •ë ¬ í˜¸ì¶œ 
 	for (int i = 0; i<SIZE; i++)
 		printf("%d ", list[i]);
 	printf("\n");

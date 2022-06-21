@@ -6,12 +6,12 @@
 
 int list[MAX];
 int n;
-void bubble_sort(int list[], int n)//(¸®½ºÆ®,¸®½ºÆ® Å©±â)
+void bubble_sort(int list[], int n)//(ë¦¬ìŠ¤íŠ¸,ë¦¬ìŠ¤íŠ¸ í¬ê¸°)
 {
 	int i, j, temp;
 	for (i = n - 1; i>0; i--) {
 		for (j = 0; j<i; j++)
-			/* ¾ÕµÚÀÇ ·¹ÄÚµå¸¦ ºñ±³ÇÑ ÈÄ ±³Ã¼ */
+			/* ì•žë’¤ì˜ ë ˆì½”ë“œë¥¼ ë¹„êµí•œ í›„ êµì²´ */
 			if (list[j]>list[j + 1])
 				SWAP(list[j], list[j + 1], temp);
 	}

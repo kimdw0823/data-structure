@@ -44,7 +44,7 @@ int main(void)
 	int i;
 	n = MAX_SIZE;
 	srand(time(NULL));
-	for (i = 0; i<n; i++)      	// ³­¼ö »ý¼º ¹× Ãâ·Â 
+	for (i = 0; i<n; i++)      	// ë‚œìˆ˜ ìƒì„± ë° ì¶œë ¥ 
 		list[i] = rand() % 100; 
 	for (i=0;i<n;i++)
 	{
@@ -52,7 +52,7 @@ int main(void)
 	}
 	printf("\n");	
 
-	quick_sort(list, 0, n-1); // ÄüÁ¤·Ä È£Ãâ 
+	quick_sort(list, 0, n-1); // í€µì •ë ¬ í˜¸ì¶œ 
 	for (i = 0; i<n; i++)
 		printf("%d ", list[i]);
 	printf("\n");

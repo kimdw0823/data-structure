@@ -7,12 +7,12 @@
 int list[MAX_SIZE];
 int n;
 
-void selection_sort(int list[], int n)//(¸®½ºÆ®,¸®½ºÆ® Å©±â)
+void selection_sort(int list[], int n)//(ë¦¬ìŠ¤íŠ¸,ë¦¬ìŠ¤íŠ¸ í¬ê¸°)
 {
 	int i, j, least, temp;
 	for (i = 0; i < n - 1; i++) {
 		least = i;
-		for (j = i + 1; j < n; j++) 	// ÃÖ¼Ò°ª Å½»ö
+		for (j = i + 1; j < n; j++) 	// ìµœì†Œê°’ íƒìƒ‰
 			if (list[j] < list[least]) least = j;
 		SWAP(list[i], list[least], temp);
 	}
@@ -23,10 +23,10 @@ int main(void)
 	int i;
 	n = MAX_SIZE;
 	srand(time(NULL));
-	for (i = 0; i<n; i++)      	// ³­¼ö »ı¼º ¹× Ãâ·Â 
-		list[i] = rand() % 100; // ³­¼ö ¹ß»ı ¹üÀ§ 0~99
+	for (i = 0; i<n; i++)      	// ë‚œìˆ˜ ìƒì„± ë° ì¶œë ¥ 
+		list[i] = rand() % 100; // ë‚œìˆ˜ ë°œìƒ ë²”ìœ„ 0~99
 
-	selection_sort(list, n); // ¼±ÅÃÁ¤·Ä È£Ãâ 
+	selection_sort(list, n); // ì„ íƒì •ë ¬ í˜¸ì¶œ 
 	for (i = 0; i<n; i++)
 		printf("%d ", list[i]);
 	printf("\n");
